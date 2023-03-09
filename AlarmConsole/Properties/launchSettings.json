@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AlarmConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "seturl"
+    }
+  }
+}
