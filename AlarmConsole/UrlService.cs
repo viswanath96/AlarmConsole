@@ -6,8 +6,11 @@ namespace AlarmConsole
 {
     class UrlService
     {
+        private static string JsonFilePath
+        { get { return Path.Combine(AppContext.BaseDirectory, @"urls.json"); } set { } }
+
         private Dictionary<string, string> videos
-            = JsonSerializer.Deserialize<Dictionary<string, string>>(System.IO.File.ReadAllText("urls.json"));
+            = JsonSerializer.Deserialize<Dictionary<string, string>>(System.IO.File.ReadAllText(JsonFilePath));
 
 
         public string GetURl()
@@ -45,6 +48,8 @@ namespace AlarmConsole
             }
             await File.WriteAllLinesAsync("urls.json", new List<string> { JsonSerializer.Serialize(videos) });
         }
+
+
 
     }
 }
